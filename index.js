@@ -39,7 +39,7 @@ function handleMessageEvent(event) {
     if (eventText === 'ลืม password เข้าระบบทะเบียนควรทำอย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'http://qro.page.link/AQTZA'
+            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน http://qro.page.link/AQTZA'
         }
     } else if (eventText === 'location') {
         msg = {
