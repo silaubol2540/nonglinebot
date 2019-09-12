@@ -39,7 +39,17 @@ function handleMessageEvent(event) {
     if (eventText === 'ลืม password เข้าระบบทะเบียนควรทำอย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน http://qro.page.link/AQTZA'
+            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน https://qro.page.link/AQTZA'
+        }
+    }else if (eventText === 'ชำระค่าลงทะเบียนล่าช้าได้อย่างไร') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grad.rmutr.ac.th/wpcontent/uploads/2019/06/reg rmutr process 01.pdf'
+        }
+    }else if (eventText === 'ขั้นตอนการถอนรายวิชาติด w ') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
         }
     } else if (eventText === 'location') {
         msg = {
