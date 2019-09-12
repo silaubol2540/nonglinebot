@@ -46,7 +46,7 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grad.rmutr.ac.th/wpcontent/uploads/2019/06/reg rmutr process 01.pdf'
         }
-    }else if (eventText === 'ขั้นตอนการถอนรายวิชาติด w ') {
+    }else if (eventText === 'ขั้นตอนการถอนรายวิชาติด w') {
         msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
