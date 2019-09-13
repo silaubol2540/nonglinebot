@@ -101,6 +101,11 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา'
         }
+    }else if (eventText === 'ลิ้งเข้าระบบทะเบียน') {
+        msg = {
+            'type': 'text',
+            'text' : 'https://reg.rmutr.ac.th/registrar/home.asp'
+        }
     }else if (eventText === 'เพิ่ม – ถอนรายวิชา วันไหน') {
         msg = {
             'type': 'text',
