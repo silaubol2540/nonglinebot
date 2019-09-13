@@ -31,7 +31,7 @@ function handleEvent(event) {
 function handleMessageEvent(event) {
     var msg = {
         type: 'text',
-        text: 'ลืม password เข้าระบบทะเบียนควรทำอย่างไร , ชำระค่าลงทะเบียนล่าช้าได้อย่างไร  , ขั้นตอนการถอนรายวิชาติด w , ขั้นตอนการเพิ่มถอนรายวิชา , ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i) , ขอพักการศึกษา , คืนสภาพนักศึกษา , ขอเอกสารการศึกษา , ขอสำเร็จการศึกษา , ขึ้นทะเบียนบัณฑิต , ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน  , นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน , ลงทะเบียน ,เพิ่ม-ถอนรายวิชา วันไหน , ขอแบบฟอร์มทำบัตรนักศึกษาใหม่'
+        text: 'ลืม password เข้าระบบทะเบียนควรทำอย่างไร,ชำระค่าลงทะเบียนล่าช้าได้อย่างไร,ขั้นตอนการถอนรายวิชาติดw,ขั้นตอนการเพิ่มถอนรายวิชา,ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i),ขอพักการศึกษา,คืนสภาพนักศึกษา,ขอเอกสารการศึกษา,ขอสำเร็จการศึกษา,ขึ้นทะเบียนบัณฑิต,ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน,นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน,ลงทะเบียน,เพิ่ม-ถอนรายวิชา วันไหน,ขอแบบฟอร์มทำบัตรนักศึกษาใหม่'
     };
 
     var eventText = event.message.text.toLowerCase();
@@ -51,7 +51,67 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
         }
-    } else if (eventText === 'location') {
+    } else if (eventText === 'ขั้นตอนการเพิ่มถอนรายวิชา') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
+        }
+    } else if (eventText === 'ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
+        }
+    } else if (eventText === 'ลาพักการศึกษา') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+        }
+    }else if (eventText === 'คืนสภาพนักศึกษา') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+        }
+    }else if (eventText === 'ขอเอกสารการศึกษา') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
+        }
+    }else if (eventText === 'ขอสำเร็จการศึกษา') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
+        }
+    }else if (eventText === 'ขึ้นทะเบียนบัณฑิต') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
+        }
+    }else if (eventText === 'ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน') {
+        msg = {
+            'type': 'text',
+            'text' : '3 วันทำการ '
+        }
+    }else if (eventText === 'นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://qrgo.page.link/d79ih '
+        }
+    }else if (eventText === 'ลงทะเบียนวันไหน') {
+        msg = {
+            'type': 'text',
+            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา'
+        }
+    }else if (eventText === 'เพิ่ม – ถอนรายวิชา วันไหน') {
+        msg = {
+            'type': 'text',
+            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา'
+        }
+    }else if (eventText === 'ขอแบบฟอร์มทำบัตรนักศึกษาใหม่') {
+        msg = {
+            'type': 'text',
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://qrgo.page.link/cb5hF'
+        }
+    }else if (eventText === 'location') {
         msg = {
             "type": "location",
             "title": "my location",
