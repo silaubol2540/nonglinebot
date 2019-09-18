@@ -89,7 +89,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน') {
         msg = {
             'type': 'text',
-            'text' : '3 วันทำการ '
+            'text' : 'เป็นเวลา 3 วันทำการ '
         }
     }else if (eventText === 'นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน') {
         msg = {
