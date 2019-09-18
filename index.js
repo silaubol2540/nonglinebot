@@ -99,7 +99,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'ลงทะเบียนวันไหน') {
         msg = {
             'type': 'text',
-            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
         }
     }else if (eventText === 'ลิ้งเข้าระบบทะเบียน') {
         msg = {
@@ -109,7 +109,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'เพิ่ม – ถอนรายวิชา วันไหน') {
         msg = {
             'type': 'text',
-            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา'
+            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
         }
     }else if (eventText === 'ขอแบบฟอร์มทำบัตรนักศึกษาใหม่') {
         msg = {
