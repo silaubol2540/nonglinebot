@@ -44,7 +44,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'ชำระค่าลงทะเบียนล่าช้าได้อย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grad.rmutr.ac.th/wpcontent/uploads/2019/06/reg rmutr process 01.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
     }else if (eventText === 'ขั้นตอนการถอนรายวิชาติด w') {
         msg = {
