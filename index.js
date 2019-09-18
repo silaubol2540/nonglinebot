@@ -39,7 +39,7 @@ function handleMessageEvent(event) {
     if (eventText === 'ลืม password เข้าระบบทะเบียนควรทำอย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน https://qro.page.link/AQTZA'
+            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน https://grade.rmutr.ac.th/elementor-5171/'
         }
     }else if (eventText === 'ชำระค่าลงทะเบียนล่าช้าได้อย่างไร') {
         msg = {
