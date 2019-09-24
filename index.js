@@ -31,7 +31,7 @@ function handleEvent(event) {
 function handleMessageEvent(event) {
     var msg = {
         type: 'text',
-        text: 'เลือกตามริสเมนูที่ขึ้นมาหน้าจอได้เลยครับ'
+        text: 'linebot สวัสดีครับต่อสอบถามเลือกตามริสเมนูที่ขึ้นมาหน้าจอได้เลยครับ'
     };
 
     var eventText = event.message.text.toLowerCase();
