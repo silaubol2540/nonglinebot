@@ -39,52 +39,52 @@ function handleMessageEvent(event) {
     if (eventText === 'ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถ reset passwort ได้ผ่าน https://grade.rmutr.ac.th/elementor-5171/'
+            'text' : 'นักศึกษาสามารถ reset passwort\nได้ผ่าน https://grade.rmutr.ac.th/elementor-5171/'
         }
     }else if (eventText === 'ชำระค่าลงทะเบียนล่าช้าได้อย่างไร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
-    }else if (eventText === 'ขั้นตอนการถอนรายวิชาติด w') {
+    }else if (eventText === 'ขั้นตอนการถอนรายวิชาติดW') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
         }
     } else if (eventText === 'ขั้นตอนการเพิ่มถอนรายวิชา') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
         }
     } else if (eventText === 'ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
         }
     } else if (eventText === 'ลาพักการศึกษา') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
         }
     }else if (eventText === 'คืนสภาพนักศึกษา') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
         }
     }else if (eventText === 'ขอเอกสารการศึกษา') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
         }
     }else if (eventText === 'ขอสำเร็จการศึกษา') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
         }
     }else if (eventText === 'ขึ้นทะเบียนบัณฑิต') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
         }
     }else if (eventText === 'ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน') {
         msg = {
@@ -94,32 +94,32 @@ function handleMessageEvent(event) {
     }else if (eventText === 'นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://qrgo.page.link/d79ih '
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://qrgo.page.link/d79ih '
         }
     }else if (eventText === 'ลงทะเบียนวันไหน') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
         }
     }else if (eventText === 'ลิ้งเข้าระบบทะเบียน') {
         msg = {
             'type': 'text',
             'text' : 'https://reg.rmutr.ac.th/registrar/home.asp'
         }
-    }else if (eventText === 'เพิ่ม – ถอนรายวิชา วันไหน') {
+    }else if (eventText === 'เพิ่ม – ถอนรายวิชาวันไหน') {
         msg = {
             'type': 'text',
-            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
+            'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา\nhttps://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
         }
     }else if (eventText === 'ขอแบบฟอร์มทำบัตรนักศึกษาใหม่') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก ลิ้งนี้https://qrgo.page.link/cb5hF'
+            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้https://qrgo.page.link/cb5hF'
         }
     }else if (eventText === 'คุยกับบอท') {
         msg = {
             'type': 'text',
-            'text' : 'สวัสดีครับสามารถสอบถามน้องบอทได้ตามคำถามได้เลยครับหรือถ้าไม่สะดวกสามารถเลือกกดที่Rich menuที่ขึ้นหน้าจอได้เลยคับ,ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร,ชำระค่าลงทะเบียนล่าช้าได้อย่างไร,ขั้นตอนการถอนรายวิชาติดw,ขั้นตอนการเพิ่มถอนรายวิชา,ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i),ขอพักการศึกษา,คืนสภาพนักศึกษา,ขอเอกสารการศึกษา,ขอสำเร็จการศึกษา,ขึ้นทะเบียนบัณฑิต,ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน,นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน,ลงทะเบียน,เพิ่ม-ถอนรายวิชาวันไหน,ขอแบบฟอร์มทำบัตรนักศึกษาใหม่,ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน,หรือเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับ'
+            'text' : 'สวัสดีครับสามารถสอบถามน้องบอทได้ตามคำถามได้เลยครับหรือถ้าไม่สะดวกสามารถเลือกกดที่Rich menuที่ขึ้นหน้าจอได้เลยคับ\n-ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร\n-ชำระค่าลงทะเบียนล่าช้าได้อย่างไร\n-ขั้นตอนการถอนรายวิชาติดw\n-ขั้นตอนการเพิ่มถอนรายวิชา\n-ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)\n-ขอพักการศึกษา\n-คืนสภาพนักศึกษา\n-ขอเอกสารการศึกษา\n-ขอสำเร็จการศึกษา\n-ขึ้นทะเบียนบัณฑิตต\n-ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน\n-นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน\n-ลงทะเบียน\n-เพิ่ม-ถอนรายวิชาวันไหน\n-ขอแบบฟอร์มทำบัตรนักศึกษาใหม่\n-ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน'
         }
     }else if (eventText === 'ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน') {
         msg = {
@@ -134,7 +134,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'ข่าวสารการรับสมัคร') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถกดดูข้อมูลได้จาก ลิ้งนี้https://tcas.rmutr.ac.th/category/%e0%b8%82%e0%b9%88%e0%b8%b2%e0%b8%a7%e0%b8%aa%e0%b8%b2%e0%b8%a3%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3/'
+            'text' : 'นักศึกษาสามารถกดดูข้อมูลได้จาก\nลิ้งนี้https://tcas.rmutr.ac.th/category/%e0%b8%82%e0%b9%88%e0%b8%b2%e0%b8%a7%e0%b8%aa%e0%b8%b2%e0%b8%a3%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3/'
         }
     }else if (eventText === 'location') {
         msg = {
