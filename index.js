@@ -31,7 +31,7 @@ function handleEvent(event) {
 function handleMessageEvent(event) {
     var msg = {
         type: 'text',
-        text: 'linebotสวท.สวัสดีครับติดต่อสอบถามเลือกตามริสเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/'
+        text: 'linebotสวท.สวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
     };
 
     var eventText = event.message.text.toLowerCase();
