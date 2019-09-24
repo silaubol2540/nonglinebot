@@ -126,6 +126,11 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'https://grade.rmutr.ac.th/แบบคำร้องงานทะเบียน/'
         }
+    }else if (eventText === 'สวัสดีครับ') {
+        msg = {
+            'type': 'text',
+            'text' : 'สำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์ยินดีให้บริการครับ'
+        }
     }else if (eventText === 'location') {
         msg = {
             "type": "location",
