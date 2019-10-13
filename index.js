@@ -4,9 +4,9 @@ const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
     console.log(err);
 })
-// const data = {
-//     id : null
-// }
+const data = {
+    id : null
+}
 // app.get('/data',(req,res)=>{
 //     db.all("SELECT * FROM question", [], (err,row) => {
 //         data.id = JSON.stringify(row)
