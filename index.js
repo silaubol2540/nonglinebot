@@ -1,5 +1,6 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
+const reuire = require('request')
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
