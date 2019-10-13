@@ -1,5 +1,20 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./demo1.sqlite", err=> {
+    console.log(err);
+})
+const data = {
+    id : null
+}
+app.get('/data',(req,res)=>{
+    db.all("SELECT * FROM question", [], (err,row) => {
+        data.id = JSON.stringify(row)
+        row.map((item)=> { console.dir(item)}0=)
+    });
+    res.setHeader('content-type','application/json');
+    res.send(data.id)
+})
 
 require('dotenv').config();
 
@@ -46,7 +61,42 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
-    }else if (eventText === '3') {
+    }
+    else if (eventText === 'report') {
+
+
+        db.all("SELECT * FROM question", [], (err, row) => {
+            // console.dir(row);
+            data.id = JSON.stringify(row)
+            // row.map((item) => { console.dir(item) })
+        });
+        request({
+            method: 'POST',
+            uri: 'https://notify-api.line.me/api/notify',
+            header: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            auth: {
+                bearer: 'ylVdqADQfxda4Wr0thDMmHmMkkfaLVmI8OzFdFPVIZq', //token
+            },
+            form: {
+                message: `this is eventext=${data.id}`, //ข้อความที่จะส่ง
+            },
+        }, (err, httpResponse, body) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(body)
+            }
+        })
+
+        msg={
+            'type':'text',
+            'text':data.id
+        }
+        
+    }
+    else if (eventText === '3') {
         msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
@@ -265,6 +315,21 @@ function handleMessageEvent(event) {
                 ]
             }
         }
+    }
+
+    else {
+        
+        msg = {
+            type: 'text',
+            text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
+        };
+        if (eventText!== "hello, world" && eventText!== null) {
+            db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
+                if(err) console.dir(err.message);
+    
+            });
+        }
+      
     }
 
     return client.replyMessage(event.replyToken, msg);
