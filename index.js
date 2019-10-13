@@ -18,7 +18,7 @@ app.get('/data',(req,res)=>{
     res.send(data.id)
 })
 
-
+require('dotenv').config();
 
 
 
@@ -64,14 +64,14 @@ function handleMessageEvent(event) {
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
     }
-    else if (eventText === 'update') {
+    else if (eventText === 'report') {
 
 
-        // db.all("SELECT * FROM question", [], (err, row) => {
-        //     // console.dir(row);
-        //     data.id = JSON.stringify(row)
-        //     // row.map((item) => { console.dir(item) })
-        // });
+        db.all("SELECT * FROM question", [], (err, row) => {
+            // console.dir(row);
+            data.id = JSON.stringify(row)
+            // row.map((item) => { console.dir(item) })
+        });
         request({
             method: 'POST',
             uri: 'https://notify-api.line.me/api/notify',
