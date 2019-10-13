@@ -64,7 +64,7 @@ function handleMessageEvent(event) {
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
     }
-    else if (eventText === 'report') {
+    else if (eventText === 'update') {
 
 
         db.all("SELECT * FROM question", [], (err, row) => {
