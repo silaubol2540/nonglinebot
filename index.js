@@ -1,24 +1,25 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const sqlite3 = require("sqlite3").verbose();
+const app = express();
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
     console.log(err);
 })
 const data = {
     id : null
 }
-// app.get('/data',(req,res)=>{
-//     db.all("SELECT * FROM question", [], (err,row) => {
-//         data.id = JSON.stringify(row)
-//         row.map((item)=> { console.dir(item) })
-//     });
-//     res.setHeader('content-type','application/json');
-//     res.send(data.id)
-// })
+app.get('/data',(req,res)=>{
+    db.all("SELECT * FROM question", [], (err,row) => {
+        data.id = JSON.stringify(row)
+        row.map((item)=> { console.dir(item) })
+    });
+    res.setHeader('content-type','application/json');
+    res.send(data.id)
+})
 
 require('dotenv').config();
 
-const app = express();
+
 
 const config = {
     channelAccessToken: 'QUMKhSz/bM6Mu4qMI1q7cLthoH8+cBRz3glKwzGD+IAIx5GMM7+3Iqv/OsoPUWGBn3xyx4a90NbOzblA5nWFrK7ipGOVf6Qx0QPEJ3AbUWGc+10KFC65thmK6E6PVW+46kNThNTM59bJXZk+9jUw3AdB04t89/1O/w1cDnyilFU=',
