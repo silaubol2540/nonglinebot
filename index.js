@@ -10,7 +10,7 @@ const data = {
 app.get('/data',(req,res)=>{
     db.all("SELECT * FROM question", [], (err,row) => {
         data.id = JSON.stringify(row)
-        row.map((item)=> { console.dir(item)}0=)
+        row.map((item)=> { console.dir(item) })
     });
     res.setHeader('content-type','application/json');
     res.send(data.id)
