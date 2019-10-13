@@ -3,7 +3,6 @@ const line = require('@line/bot-sdk');
 const request = require('request')
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
-require('dotenv').config();
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
     console.log(err);
 })
@@ -65,7 +64,7 @@ function handleMessageEvent(event) {
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
     }
-    else if (eventText === 'report') {
+    else if (eventText === 'Report') {
 
 
         // db.all("SELECT * FROM question", [], (err, row) => {
