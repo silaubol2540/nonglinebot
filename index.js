@@ -1,9 +1,9 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
-// const sqlite3 = require("sqlite3").verbose();
-// const db = new sqlite3.Database("./demo1.sqlite", err=> {
-//     console.log(err);
-// })
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./demo1.sqlite", err=> {
+    console.log(err);
+})
 // const data = {
 //     id : null
 // }
@@ -324,10 +324,10 @@ function handleMessageEvent(event) {
             text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
         };
         if (eventText!== "hello, world" && eventText!== null) {
-            // db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
-            //     if(err) console.dir(err.message);
+            db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
+                if(err) console.dir(err.message);
     
-            // });
+            });
         }
       
     }
