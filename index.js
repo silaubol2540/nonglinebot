@@ -3,6 +3,7 @@ const line = require('@line/bot-sdk');
 const request = require('request')
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
+require('dotenv').config();
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
     console.log(err);
 })
@@ -18,7 +19,7 @@ app.get('/data',(req,res)=>{
     res.send(data.id)
 })
 
-require('dotenv').config();
+
 
 
 
