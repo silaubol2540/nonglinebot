@@ -1,6 +1,7 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const request = require('request')
+require('dotenv').config();
 const app = express();
 const {clientDB} = require('./connect')
 const data = {
@@ -27,7 +28,7 @@ app.get('/data', (req, res) => {
          
 })
 
-require('dotenv').config();
+
 
 
 
@@ -55,12 +56,12 @@ function handleEvent(event) {
 }
 
 function handleMessageEvent(event) {
-    var msg = {
+    let msg = {
         type: 'text',
         text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
     };
 
-    var eventText = event.message.text.toLowerCase();
+    let eventText = event.message.text.toLowerCase();
 
     if (eventText === '1') {
         msg = {
