@@ -71,7 +71,7 @@ function handleMessageEvent(event) {
     }else if (eventText === '2') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
         }
     }
     else if (eventText === 'update') {
@@ -117,42 +117,42 @@ function handleMessageEvent(event) {
     else if (eventText === '3') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
         }
     } else if (eventText === '4') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
         }
     } else if (eventText === '5') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จากก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
         }
     } else if (eventText === '6') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
         }
     }else if (eventText === '7') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จากก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
         }
     }else if (eventText === '8') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
         }
     }else if (eventText === '9') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
         }
     }else if (eventText === '10') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
         }
     }else if (eventText === '11') {
         msg = {
@@ -162,12 +162,12 @@ function handleMessageEvent(event) {
     }else if (eventText === '12') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้ https://qrgo.page.link/d79ih '
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://qrgo.page.link/d79ih '
         }
     }else if (eventText === '13') {
         msg = {
             'type': 'text',
-            'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
+            'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
         }
     }else if (eventText === 'ลิ้งเข้าระบบทะเบียน') {
         msg = {
@@ -187,7 +187,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'คุยกับบอท') {
         msg = {
             'type': 'text',
-            'text' : 'สวัสดีครับสามารถเลือกคำถามได้ตามตัวเลขตามหัวข้อคำถามได้เลยครับหรือถ้าไม่สะดวกสามารถเลือกกดที่Rich menuที่ขึ้นหน้าจอได้เลยคับ\n1.ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร\n2.ชำระค่าลงทะเบียนล่าช้าได้อย่างไร\n3.ขั้นตอนการถอนรายวิชาติดw\n4.ขั้นตอนการเพิ่มถอนรายวิชา\n5.ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)\n6.ขอพักการศึกษา\n7.คืนสภาพนักศึกษา\n8.ขอเอกสารการศึกษา\n9.ขอสำเร็จการศึกษา\n10.ขึ้นทะเบียนบัณฑิต\n11.ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน\n12.นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน\n13.ลงทะเบียนวันไหน\n14.เพิ่ม-ถอนรายวิชาวันไหน\n15.ขอแบบฟอร์มทำบัตรนักศึกษาใหม่\n16.ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน\17.ข่าสารการรับสมัคร\n18.ติดต่อสอบถาม'
+            'text' : 'สวัสดีครับสามารถเลือกคำถามได้ตามตัวเลข1-18ตามหัวข้อคำถามได้เลยครับหรือถ้าไม่สะดวกสามารถเลือกกดที่Rich menuที่ขึ้นหน้าจอได้เลยคับ\n1.ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร\n2.ชำระค่าลงทะเบียนล่าช้าได้อย่างไร\n3.ขั้นตอนการถอนรายวิชาติดw\n4.ขั้นตอนการเพิ่มถอนรายวิชา\n5.ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)\n6.ขอพักการศึกษา\n7.คืนสภาพนักศึกษา\n8.ขอเอกสารการศึกษา\n9.ขอสำเร็จการศึกษา\n10.ขึ้นทะเบียนบัณฑิต\n11.ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน\n12.นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน\n13.ลงทะเบียนวันไหน\n14.เพิ่ม-ถอนรายวิชาวันไหน\n15.ขอแบบฟอร์มทำบัตรนักศึกษาใหม่\n16.ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน\n17.ข่าสารการรับสมัคร\n18.ติดต่อสอบถาม'
         }
     }else if (eventText === 'ขอแบบฟอร์มเอกสารคำร้องต่างๆฝ่ายงานทะเบียน') {
         msg = {
@@ -227,7 +227,7 @@ function handleMessageEvent(event) {
     }else if (eventText === 'สวัสดีครับ') {
         msg = {
             'type': 'text',
-            'text' : 'สวัสดีครับ ผมคือ linebot ฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์\nยินดีให้บริการครับ'
+            'text' : 'สวัสดีครับ ผมคือน้อง linebot ฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์\nยินดีให้บริการครับ'
         }
     }
 
