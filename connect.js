@@ -71,7 +71,7 @@ const  CTB = 'CREATE TABLE question(id SERIAL PRIMARY KEY,question VARCHAR NOT N
     
       
 // }
-createData()
+// createData()
 module.exports= {
     clientDB:client
 }
