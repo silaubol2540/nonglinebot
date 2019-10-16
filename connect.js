@@ -22,13 +22,13 @@ const client = new Client({
 const  CTB = 'CREATE TABLE question(id SERIAL PRIMARY KEY,question VARCHAR NOT NULL);'
  const IDB = "INSERT INTO question (name) VALUES ($1)"
  
-// // client.query(CTB,(err, res) => {
-// //   if (err) throw err;
-// //   for (let row of res.rows) {
-// //     console.log(JSON.stringify(row));
-// //   }
-// //   client.end();
-// // });
+// client.query(CTB,(err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
  
 // let createData=()=>{
 //     client.connect();
@@ -71,7 +71,7 @@ const  CTB = 'CREATE TABLE question(id SERIAL PRIMARY KEY,question VARCHAR NOT N
     
       
 // }
-// createData()
-// module.exports= {
-//     clientDB:client
-// }
+createData()
+module.exports= {
+    clientDB:client
+}

@@ -3,19 +3,32 @@ const line = require('@line/bot-sdk');
 const request = require('request')
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
+const {clientDB} = require('./connect')
 const db = new sqlite3.Database("./demo1.sqlite", err=> {
     console.log(err);
 })
 const data = {
     id : null
 }
-app.get('/data',(req,res)=>{
-    db.all("SELECT * FROM question", [], (err,row) => {
-        data.id = JSON.stringify(row)
-        row.map((item)=> { console.dir(item) })
-    });
-    res.setHeader('content-type','application/json');
-    res.send(data.id)
+const IDB = "INSERT INTO question (question) VALUES ($1)"
+const SDB = "select * from question"
+clientDB.connect();
+app.get('/data', (req, res) => {
+   
+        let result = []
+         clientDB.query(SDB,(err, resDB) => {
+            resDBult.push(resDB.rows)
+            data.id=JSON.stringify(resDB.rows)
+            if (err) throw err;
+            for (let row of resDB.rows) {
+                
+              console.log(JSON.stringify(row));
+            }
+            console.log(`this is = ${result}`);
+          });
+          
+        
+         
 })
 
 require('dotenv').config();
@@ -67,11 +80,18 @@ function handleMessageEvent(event) {
     else if (eventText === 'update') {
 
 
-        db.all("SELECT * FROM question", [], (err, row) => {
-            // console.dir(row);
-            data.id = JSON.stringify(row)
-            // row.map((item) => { console.dir(item) })
-        });
+        let result = []
+        clientDB.query(SDB,(err, resDB) => {
+           
+           
+           if (err) throw err;
+           for (let row of resDB.rows) {
+            result.push(row)
+             console.log(JSON.stringify(row));
+           }
+           data.id=JSON.stringify(result)
+           console.log(`this is = ${result}`);
+         });
         request({
             method: 'POST',
             uri: 'https://notify-api.line.me/api/notify',
@@ -79,7 +99,7 @@ function handleMessageEvent(event) {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             auth: {
-                bearer:'wZb1AYN4I0HCixZd5UioSbcgACCSThFElSnevSBSN7F', //token
+                bearer: 'wZb1AYN4I0HCixZd5UioSbcgACCSThFElSnevSBSN7F', //token
             },
             form: {
                 message: `this is eventext=${data.id}`, //ข้อความที่จะส่ง
@@ -94,9 +114,8 @@ function handleMessageEvent(event) {
 
         msg={
             'type':'text',
-            'text':data.id
+            'text': data.id
         }
-        
     }
     else if (eventText === '3') {
         msg = {
@@ -213,110 +232,6 @@ function handleMessageEvent(event) {
             'type': 'text',
             'text' : 'สวัสดีครับ ผมคือ linebot ฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์\nยินดีให้บริการครับ'
         }
-    }else if (eventText === 'location') {
-        msg = {
-            "type": "location",
-            "title": "my location",
-            "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
-            "latitude": 35.65910807942215,
-            "longitude": 139.70372892916203
-        }
-    } else if (eventText === 'template button') {
-        msg = {
-            "type": "template",
-            "altText": "this is a buttons template",
-            "template": {
-                "type": "buttons",
-                "thumbnailImageUrl": "https://www.thesun.co.uk/wp-content/uploads/2017/03/fifa-17-2.jpg?strip=all&w=742&quality=100",
-                "title": "Menu",
-                "text": "Please select",
-                "actions": [{
-                    "type": "postback",
-                    "label": "Buy",
-                    "data": "action=buy&itemid=123"
-                }, {
-                    "type": "postback",
-                    "label": "Add to cart",
-                    "data": "action=add&itemid=123"
-                }, {
-                    "type": "uri",
-                    "label": "View detail",
-                    "uri": "http://example.com/page/123"
-                }]
-            }
-        }
-    } else if (eventText === 'template confirm') {
-        msg = {
-            "type": "template",
-            "altText": "this is a confirm template",
-            "template": {
-                "type": "confirm",
-                "text": "Are you sure?",
-                "actions": [{
-                    "type": "message",
-                    "label": "Yes",
-                    "text": "yes"
-                }, {
-                    "type": "message",
-                    "label": "No",
-                    "text": "no"
-                }]
-            }
-        }
-    } else if (eventText === 'carousel') {
-        msg = {
-            "type": "template",
-            "altText": "this is a carousel template",
-            "template": {
-                "type": "carousel",
-                "columns": [
-                    {
-                        "thumbnailImageUrl": "https://www.thesun.co.uk/wp-content/uploads/2017/03/fifa-17-2.jpg?strip=all&w=742&quality=100",
-                        "title": "this is menu",
-                        "text": "description",
-                        "actions": [
-                            {
-                                "type": "postback",
-                                "label": "Buy",
-                                "data": "action=buy&itemid=111"
-                            },
-                            {
-                                "type": "postback",
-                                "label": "Add to cart",
-                                "data": "action=add&itemid=111"
-                            },
-                            {
-                                "type": "uri",
-                                "label": "View detail",
-                                "uri": "http://example.com/page/111"
-                            }
-                        ]
-                    },
-                    {
-                        "thumbnailImageUrl": "https://www.thesun.co.uk/wp-content/uploads/2017/03/fifa-17-2.jpg?strip=all&w=742&quality=100",
-                        "title": "this is menu",
-                        "text": "description",
-                        "actions": [
-                            {
-                                "type": "postback",
-                                "label": "Buy",
-                                "data": "action=buy&itemid=222"
-                            },
-                            {
-                                "type": "postback",
-                                "label": "Add to cart",
-                                "data": "action=add&itemid=222"
-                            },
-                            {
-                                "type": "uri",
-                                "label": "View detail",
-                                "uri": "http://example.com/page/222"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
     }
 
     else {
@@ -326,10 +241,14 @@ function handleMessageEvent(event) {
             text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
         };
         if (eventText!== "hello, world" && eventText!== null) {
-            db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
-                if(err) console.dir(err.message);
-    
-            });
+            //   clientDB.connect();
+    clientDB.query(IDB,[eventText],(err, resDB) => {
+        if (err) throw err;
+        for (let row of resDB.rows) {
+          console.log(JSON.stringify(row));
+        }
+      //  clientDB.end();
+      });
         }
       
     }
