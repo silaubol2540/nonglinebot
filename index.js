@@ -14,13 +14,14 @@ app.get('/data', (req, res) => {
    
         let result = []
          clientDB.query(SDB,(err, resDB) => {
-            resDBult.push(resDB.rows)
+            result.push(resDB.rows)
             data.id=JSON.stringify(resDB.rows)
             if (err) throw err;
             for (let row of resDB.rows) {
                 
               console.log(JSON.stringify(row));
             }
+            res.status(200).json(result)
             console.log(`this is = ${result}`);
           });
           
@@ -55,26 +56,100 @@ function handleEvent(event) {
     }
 }
 
-function handleMessageEvent(event) {
-    let msg = {
-        type: 'text',
-        text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
-    };
+async function handleMessageEvent(event) {
+    // let msg = {
+    //     type: 'text',
+    //     text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
+    // };
 
     let eventText = event.message.text.toLowerCase();
 
     if (eventText === '1') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถ reset passwort\nได้ผ่าน https://grade.rmutr.ac.th/elementor-5171/'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '2') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_01.pdf'
-        }
-    }
-    else if (eventText === 'update') {
+            
+        };
+        return client.replyMessage(event.replyToken, msg);
+    }else if (eventText.replace(/\s+/g, '').slice(0,6)==="delete") { 
+   
+        let delparams = eventText.slice(6, eventText.length);
+      //  data.id=delparams
+        await clientDB.query("DELETE FROM question WHERE id=$1", [delparams],  (err, resDB)=>{
+                if (err) throw err;
+         else{
+            if (resDB.rowCount) {
+                  data.del="Delete success"
+                  let msg = {
+                   type: "text",
+                   text: data.del
+                 };
+                 request(
+                   {
+                     method: "POST",
+                     uri: "https://notify-api.line.me/api/notify",
+                     header: {
+                       "Content-Type": "application/x-www-form-urlencoded"
+                     },
+                     auth: {
+                       bearer: "wZb1AYN4I0HCixZd5UioSbcgACCSThFElSnevSBSN7F" //token
+                     },
+                     form: {
+                       message: `this is eventext=${data.del}` //ข้อความที่จะส่ง
+                     }
+                   },
+                   (err, httpResponse, body) => {
+                     if (err) {
+                       console.log(err);
+                     } else {
+                       console.log(body);
+                     }
+                   }
+                 );
+                  return client.replyMessage(event.replyToken, msg);
+             }
+            else{
+                 data.del="Delete error"
+                 let msg = {
+                   type: "text",
+                   text: data.del
+                 };
+                 request(
+                   {
+                     method: "POST",
+                     uri: "https://notify-api.line.me/api/notify",
+                     header: {
+                       "Content-Type": "application/x-www-form-urlencoded"
+                     },
+                     auth: {
+                       bearer: "wZb1AYN4I0HCixZd5UioSbcgACCSThFElSnevSBSN7F" //token
+                     },
+                     form: {
+                       message: `this is eventext=${data.del}` //ข้อความที่จะส่ง
+                     }
+                   },
+                   (err, httpResponse, body) => {
+                     if (err) {
+                       console.log(err);
+                     } else {
+                       console.log(body);
+                     }
+                   }
+                 );
+                  return client.replyMessage(event.replyToken, msg);    
+             }
+        } 
+          });
+        
+       
+          
+       }else if (eventText === 'update') {
 
 
         let result = []
@@ -109,131 +184,155 @@ function handleMessageEvent(event) {
             }
         })
 
-        msg={
+       let msg={
             'type':'text',
             'text': data.id
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }
     else if (eventText === '3') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wpcontent/uploads/2019/06reg rmutr process 03.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     } else if (eventText === '4') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_02.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     } else if (eventText === '5') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จากก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_04.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     } else if (eventText === '6') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '7') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จากก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_05.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '8') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_06.pdf '
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '9') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_07.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '10') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://grade.rmutr.ac.th/wp-content/uploads/2019/06/reg_rmutr_process_08.pdf'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '11') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'เป็นเวลา 3 วันทำการ '
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '12') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้ https://qrgo.page.link/d79ih '
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '13') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูตัวอย่างแบบฟร์อมเอกสารได้จาก\nลิ้งนี้https://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'ลิ้งเข้าระบบทะเบียน') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'https://reg.rmutr.ac.th/registrar/home.asp'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '14') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'ดูได้ที่ปฏิทินการศึกษาในระบบงานทะเบียนนักศึกษา\nhttps://reg.rmutr.ac.th/registrar/calendar.asp?avs105219304=1'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '15') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จาก\nลิ้งนี้https://qrgo.page.link/cb5hF'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'คุยกับบอท') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'สวัสดีครับสามารถเลือกคำถามได้ตามตัวเลข1-18ตามหัวข้อคำถามได้เลยครับหรือถ้าไม่สะดวกสามารถเลือกกดที่Rich menuที่ขึ้นหน้าจอได้เลยคับ\n1.ลืมpasswordเข้าระบบทะเบียนควรทำอย่างไร\n2.ชำระค่าลงทะเบียนล่าช้าได้อย่างไร\n3.ขั้นตอนการถอนรายวิชาติดw\n4.ขั้นตอนการเพิ่มถอนรายวิชา\n5.ขั้นตอนการยื่นคำร้องขอแก้ระดับคะแนนไม่สมบูรณ์ ม.ส.(i)\n6.ขอพักการศึกษา\n7.คืนสภาพนักศึกษา\n8.ขอเอกสารการศึกษา\n9.ขอสำเร็จการศึกษา\n10.ขึ้นทะเบียนบัณฑิต\n11.ติดต่อขอรับเอกสารการศึกษาใช้เวลากี่วัน\n12.นักศึกษาสามารถประเมินความพึงพอใจได้ที่ไหน\n13.ลงทะเบียนวันไหน\n14.เพิ่ม-ถอนรายวิชาวันไหน\n15.ขอแบบฟอร์มทำบัตรนักศึกษาใหม่\n16.ขอแบบฟอร์มเอกสารคำร้องต่างๆงานทะเบียน\n17.ข่าสารการรับสมัคร\n18.ติดต่อสอบถาม'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'ขอแบบฟอร์มเอกสารคำร้องต่างๆฝ่ายงานทะเบียน') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'https://grade.rmutr.ac.th/แบบคำร้องงานทะเบียน/'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'ติดต่อสอบถาม') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'สวัสดีครับ ท่านสามารถติดต่อสอบถามข้อมูลเกี่ยวกับฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์ได้ เช่น  การรับสมัคร แบบฟอร์มเอกสาร หรือการลงทะเบียน\nfacebook:https://www.facebook.com/regrmutr/?epa=SEARCH_BOX\nwedsite:https://grade.rmutr.ac.th/\nสามารถติดต่อได้ที่024416000\nติดต่อเจ้าหน้าที่คณะวิศวะ 2313\nติดต่อเจ้าหน้าที่คณะสถาปัต และวิทยาศาสตร์ 2308\nติดต่อเจ้าหน้าที่คณะบริหาร 2312\nเรื่องทั่วไปติดต่อสอบถาม 2304, 2305\nเทียบโอนผลการเรียน 2301\nทำบัตรนักศึกษาระบบงานทะเบียน 2302'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'ข่าวสารการรับสมัคร') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถกดดูข้อมูลได้จาก\nลิ้งนี้https://tcas.rmutr.ac.th/category/%e0%b8%82%e0%b9%88%e0%b8%b2%e0%b8%a7%e0%b8%aa%e0%b8%b2%e0%b8%a3%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%a3%e0%b8%b1%e0%b8%9a%e0%b8%aa%e0%b8%a1%e0%b8%b1%e0%b8%84%e0%b8%a3/'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '13') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถดูข้อมูลได้จากปฏิทินการศึกษาในระบบทะเบียน\nhttps://reg.rmutr.ac.th/registrar/calendar.asp?schedulegroupid=1&acadyear=2563&d1=1&semester=1'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '16') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถเลือกแบบฟอร์มเอกสารคำร้องต่างๆ\nhttps://grade.rmutr.ac.th/%e0%b9%81%e0%b8%9a%e0%b8%9a%e0%b8%84%e0%b8%b3%e0%b8%a3%e0%b9%89%e0%b8%ad%e0%b8%87%e0%b8%87%e0%b8%b2%e0%b8%99%e0%b8%97%e0%b8%b0%e0%b9%80%e0%b8%9a%e0%b8%b5%e0%b8%a2%e0%b8%99/'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '18') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'สวัสดีครับ ท่านสามารถติดต่อสอบถามข้อมูลเกี่ยวกับฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์ได้ เช่น  การรับสมัคร แบบฟอร์มเอกสาร หรือการลงทะเบียน\nfacebook:https://www.facebook.com/regrmutr/?epa=SEARCH_BOX\nwedsite:https://grade.rmutr.ac.th/\nสามารถติดต่อได้ที่024416000\nติดต่อเจ้าหน้าที่คณะวิศวะ 2313\nติดต่อเจ้าหน้าที่คณะสถาปัต และวิทยาศาสตร์ 2308\nติดต่อเจ้าหน้าที่คณะบริหาร 2312\nเรื่องทั่วไปติดต่อสอบถาม 2304, 2305\nเทียบโอนผลการเรียน 2301\nทำบัตรนักศึกษาระบบงานทะเบียน 2302'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === '17') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'นักศึกษาสามารถศึกษาข้อมูลได้จาก\nwebsite https://tcas.rmutr.ac.th/'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }else if (eventText === 'สวัสดีครับ') {
-        msg = {
+       let msg = {
             'type': 'text',
             'text' : 'สวัสดีครับ ผมคือน้อง linebot ฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนมหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์\nยินดีให้บริการครับ'
-        }
+        };
+        return client.replyMessage(event.replyToken, msg);
     }
 
     else {
         
-        msg = {
+       let msg = {
             type: 'text',
             text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
         };
