@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require ('cors')
 const line = require('@line/bot-sdk');
 const request = require('request')
 require('dotenv').config();
 const app = express();
+app.use(cors())
 const {clientDB} = require('./connect')
 const data = {
     id : null
