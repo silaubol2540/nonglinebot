@@ -362,6 +362,7 @@ async function handleMessageEvent(event) {
             type: 'text',
             text: 'linebotฝ่ายทะเบียนสำนักส่งเสริมวิชาการและงานทะเบียนสวัสดีครับติดต่อสอบถามเลือกตามเมนูที่ขึ้นมาหน้าจอได้เลยครับหรือกดติดตามได้ทางเพจ\nfacebook https://www.facebook.com/regrmutr/\nwedsite:https://grade.rmutr.ac.th/'
         };
+
         if (eventText!== "hello, world" && eventText!== null) {
             //   clientDB.connect();
     clientDB.query(IDB,[eventText],(err, resDB) => {
@@ -372,10 +373,10 @@ async function handleMessageEvent(event) {
       //  clientDB.end();
       });
         }
-      
+        return client.replyMessage(event.replyToken, msg);
     }
 
-    return client.replyMessage(event.replyToken, msg);
+    
 }
 
 app.set('port', (process.env.PORT || 5000));
