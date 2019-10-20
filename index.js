@@ -1,10 +1,14 @@
 const express = require('express');
 let cors = require ('cors')
 const line = require('@line/bot-sdk');
+const bodyParser = require('body-parser')
 const request = require('request')
 require('dotenv').config();
 const app = express();
 app.use(cors())
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 const {clientDB} = require('./connect')
 const data = {
     id : null
@@ -30,7 +34,27 @@ app.get('/data', (req, res) => {
         
          
 })
-
+app.post("/delete", (req, res) => {
+   
+  // console.log('====================================');
+  // //console.log(`this value =${delparams}`);
+  // console.log('====================================');
+  clientDB.query(`DELETE FROM question WHERE id in (${req.body.data})`, (err, resDB) => {
+    if (err) throw err;
+    else{
+        if (resDB.rowCount) {
+            res.send(`Delete success`);
+        }
+        else{
+                res.send(JSON.stringify(resDB))
+        }
+    }
+    
+   
+  });
+  
+  
+});
 
 
 
