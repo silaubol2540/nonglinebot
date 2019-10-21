@@ -14,7 +14,7 @@ const data = {
     id : null
 }
 const IDB = "INSERT INTO question (question) VALUES ($1)"
-const SDB = "select * from question"
+const SDB = "select * from question order by id ASC";
 clientDB.connect();
 app.get('/data', (req, res) => {
    
@@ -55,6 +55,22 @@ app.post("/delete", (req, res) => {
   
   
 });
+app.delete('/del', (req, res) => {
+  console.log(req.query.id);
+  clientDB.query(`DELETE FROM question WHERE id=(${req.query.id})`, (err, resDB) => {
+    if (err) throw err;
+    else{
+        if (resDB.rowCount) {
+            res.send(`Delete success`);
+        }
+        else{
+                res.send(JSON.stringify(resDB))
+        }
+    }
+    
+   
+  });
+})
 
 
 
